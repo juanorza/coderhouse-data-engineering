@@ -200,6 +200,14 @@ def extraer_configuracion(config: dict) -> pd.DataFrame:
 
 
 def extraccion(extract_config: dict) -> pd.DataFrame:
+    """
+    Ejecuta la descarga del objeto de configuración extract_config,
+    repitiendo la tarea para cada una de las ciudades del listado CIUDADES
+    Args:
+        extract_config: dict
+    Returns:
+
+    """
     df_resultado = pd.DataFrame()
 
     for ciudad in CIUDADES:
