@@ -1,0 +1,5 @@
+USER = "orza_juan_coderhouse"
+PASSWORD = "0p1ZpL3p3x"
+HOST = "data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com"
+PORT = "5439"
+DATABASE = "data-engineer-database"

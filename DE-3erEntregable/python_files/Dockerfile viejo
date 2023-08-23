@@ -1,0 +1,21 @@
+FROM python:3.8
+
+ENV AIRFLOW_HOME=/app
+
+RUN pip install --upgrade pip
+RUN pip install "apache-airflow==2.3.3" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-3.8.txt"
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# RUN curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.3.3/docker-compose.yaml'
+
+COPY dags ./dags
+CMD ["airflow", "standalone"]
+
+
+# docker build -t prueba_etl .
+# docker run -it prueba_etl
+# docker exec -it [container-id] bash
