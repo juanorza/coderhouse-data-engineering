@@ -1,9 +1,8 @@
-# DE-2doEntregable
+# DE-3erEntregable
 
-El script `main.py` ejecuta el proceso completo de ETL. Invoca las funciones principales de los módulos `extract.py`, `transform.py` y `load.py` para la ejecución de cada instancia.
+(instructivo en construcción)
+Trabajo incompleto, me faltan unos pocos ajustes para que termine de funcionar.
 
-Para que el proceso no demore demasiado, en esta resolución limitamos la descarga de información del clima a una ventana concreta de tiempo (enero 2023) y solo obtendremos valores diarios para cada ciudad. 
+![image](https://github.com/juanorza/coderhouse-data-engineering/assets/68288013/4fbe26b9-df49-46fe-8200-39c624eb8eac)
 
-El script `start_db.py` se conecta a la base de datos de Amazon Redshift provista para este proyecto y crea la tabla incial para almacenar la información descargada en el script anterior.
 
-![image](https://github.com/juanorza/coderhouse-data-engineering/assets/68288013/dc65e0ed-303e-46c3-af91-6514df249735)
