@@ -7,6 +7,7 @@ from airflow.decorators import task
 # Operators; we need this to operate!
 from airflow.operators.python import PythonOperator
 
+from project_files.start_db import start_db
 from project_files.extract import extraction_task
 from project_files.load import transform_and_load_task
 from project_files.alerta import lanzar_alerta_task
@@ -44,7 +45,7 @@ with DAG(
         "retries": 1,
         "retry_delay": timedelta(minutes=1),
     },
-    description="DAG para la creación a cero de las tablas necesarias",
+    description="DAG para la creación a cero de las tablas necesarias para almacenar los datos descargados. Se ejecuta una única vez, previo a al DAG principal",
     schedule_interval="@once",
     start_date=datetime(2000, 1, 1),
     catchup=True,
@@ -55,14 +56,12 @@ with DAG(
 
 with DAG(
     "main_dag",
-    # These args will get passed on to each operator
-    # You can override them on a per-task basis during operator initialization
     default_args={
         "owner": "JuanOrza",
         "retries": 1,
         "retry_delay": timedelta(minutes=1),
     },
-    description="DAG para la ejecución del script main",
+    description="DAG para la ejecución del script principal. Consta de tres tareas: extracción, transformación y carga, y lanzar alerta.",
     schedule_interval="@daily",
     start_date=datetime(2023, 3, 1),
     end_date=datetime(2023, 4, 30),
