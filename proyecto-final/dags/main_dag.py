@@ -7,7 +7,6 @@ from airflow.decorators import task
 # Operators; we need this to operate!
 from airflow.operators.python import PythonOperator
 
-from project_files.main import main, start_db
 from project_files.extract import extraction_task
 from project_files.load import transform_and_load_task
 from project_files.alerta import lanzar_alerta_task
